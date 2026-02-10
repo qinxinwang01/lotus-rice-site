@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Lotus &amp; Rice Asian Kitchen</title>
+  <meta name="description" content="Explore the full menu at Lotus & Rice. Thai curries, Chinese wok dishes, Japanese sushi rolls, appetizers, and a full drink menu.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav__logo">Lotus <span>&amp;</span> Rice</a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav__cart" id="cartBtn" aria-label="Open cart">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="nav__cart-badge" id="cartBadge" style="display:none;">0</span>
+      </button>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <span class="section-label">Our Menu</span>
+      <h1>Food &amp; Drinks</h1>
+      <p>Fresh Asian fusion flavors made for takeout. Call ahead to order or walk in for pickup.</p>
+    </div>
+  </header>
+
+  <!-- Menu Navigation -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="container">
+      <div class="menu-nav">
+        <a href="#appetizers">Appetizers</a>
+        <a href="#thai">Thai</a>
+        <a href="#chinese">Chinese</a>
+        <a href="#sushi">Sushi &amp; Japanese</a>
+        <a href="#noodles">Noodles &amp; Rice</a>
+        <a href="#drinks">Drinks</a>
+        <a href="#alcohol">Beer, Wine &amp; Spirits</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Content -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+
+      <!-- Appetizers -->
+      <div class="menu-category" id="appetizers">
+        <h2>Appetizers <span>// Starters</span></h2>
+
+        <div class="menu-item" data-name="Crispy Spring Rolls (4)" data-price="7.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Crispy Spring Rolls (4)
+              <span class="menu-item__tag menu-item__tag--veggie">Veggie</span>
+            </div>
+            <div class="menu-item__desc">Glass noodles, cabbage, carrots, and mushrooms with sweet chili dipping sauce</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$7.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Pork Gyoza (6)" data-price="9.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Pork Gyoza (6)</div>
+            <div class="menu-item__desc">Pan-fried Japanese dumplings with pork and ginger, served with ponzu</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$9.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Thai Chicken Satay (5)" data-price="10.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Thai Chicken Satay (5)
+              <span class="menu-item__tag menu-item__tag--popular">Popular</span>
+            </div>
+            <div class="menu-item__desc">Grilled marinated chicken skewers with house peanut sauce and cucumber relish</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$10.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Edamame" data-price="5.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Edamame</div>
+            <div class="menu-item__desc">Steamed soybeans with sea salt and a squeeze of lime</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$5.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Shrimp Toast (4)" data-price="8.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Shrimp Toast (4)
+            </div>
+            <div class="menu-item__desc">Crispy fried bread topped with minced shrimp and sesame seeds</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$8.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Crab Rangoon (6)" data-price="9.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Crab Rangoon (6)
+              <span class="menu-item__tag menu-item__tag--popular">Popular</span>
+            </div>
+            <div class="menu-item__desc">Crispy wontons filled with cream cheese, crab, and scallions</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$9.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thai -->
+      <div class="menu-category" id="thai">
+        <h2>Thai <span>// From the Wok &amp; Curry Pot</span></h2>
+
+        <div class="menu-item" data-name="Pad Thai" data-price="14.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Pad Thai
+              <span class="menu-item__tag menu-item__tag--popular">Popular</span>
+            </div>
+            <div class="menu-item__desc">Rice noodles, shrimp or chicken, egg, bean sprouts, peanuts, and tamarind sauce</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$14.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Green Curry" data-price="15.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Green Curry
+              <span class="menu-item__tag menu-item__tag--spicy">Spicy</span>
+            </div>
+            <div class="menu-item__desc">Coconut milk curry with Thai basil, bamboo shoots, and bell peppers. Choice of protein</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$15.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Massaman Curry" data-price="15.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Massaman Curry</div>
+            <div class="menu-item__desc">Rich peanut-coconut curry with potatoes, onions, and roasted cashews. Choice of protein</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$15.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Thai Basil Stir-Fry" data-price="14.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Thai Basil Stir-Fry
+              <span class="menu-item__tag menu-item__tag--spicy">Spicy</span>
+            </div>
+            <div class="menu-item__desc">Wok-tossed with garlic, chilies, Thai basil, green beans, and jasmine rice</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$14.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Tom Yum Soup" data-price="12.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Tom Yum Soup</div>
+            <div class="menu-item__desc">Hot and sour soup with shrimp, lemongrass, galangal, mushrooms, and lime</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$12.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Drunken Noodles" data-price="14.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Drunken Noodles
+              <span class="menu-item__tag menu-item__tag--spicy">Spicy</span>
+            </div>
+            <div class="menu-item__desc">Wide rice noodles, Thai basil, peppers, and garlic sauce. Choice of protein</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$14.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chinese -->
+      <div class="menu-category" id="chinese">
+        <h2>Chinese <span>// Comfort Classics</span></h2>
+
+        <div class="menu-item" data-name="General Tso's Chicken" data-price="14.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              General Tso's Chicken
+              <span class="menu-item__tag menu-item__tag--popular">Popular</span>
+            </div>
+            <div class="menu-item__desc">Crispy chicken in sweet-spicy glaze with steamed broccoli and jasmine rice</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$14.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Kung Pao Shrimp" data-price="16.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Kung Pao Shrimp
+              <span class="menu-item__tag menu-item__tag--spicy">Spicy</span>
+            </div>
+            <div class="menu-item__desc">Wok-fired shrimp with peanuts, dried chilies, and Sichuan peppercorns</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$16.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Beef &amp; Broccoli" data-price="15.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Beef &amp; Broccoli</div>
+            <div class="menu-item__desc">Tender sliced beef and broccoli florets in savory garlic-soy sauce</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$15.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Mapo Tofu" data-price="13.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Mapo Tofu
+              <span class="menu-item__tag menu-item__tag--spicy">Spicy</span>
+              <span class="menu-item__tag menu-item__tag--veggie">Veggie</span>
+            </div>
+            <div class="menu-item__desc">Silken tofu in spicy Sichuan chili-bean sauce with ground pork (or vegetarian)</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$13.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Sweet &amp; Sour Pork" data-price="14.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Sweet &amp; Sour Pork</div>
+            <div class="menu-item__desc">Crispy pork pieces with pineapple, bell peppers, and tangy glaze</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$14.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Shanghai Scallion Noodles" data-price="12.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Shanghai Scallion Noodles
+              <span class="menu-item__tag menu-item__tag--veggie">Veggie</span>
+            </div>
+            <div class="menu-item__desc">Thick wheat noodles caramelized with soy sauce, sugar, and heaps of scallions</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$12.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sushi & Japanese -->
+      <div class="menu-category" id="sushi">
+        <h2>Sushi &amp; Japanese <span>// Rolls &amp; Classics</span></h2>
+
+        <div class="menu-item" data-name="Lotus Roll (8 pcs)" data-price="16.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Lotus Roll (8 pcs)
+              <span class="menu-item__tag menu-item__tag--popular">Popular</span>
+            </div>
+            <div class="menu-item__desc">Spicy tuna, avocado, cucumber, topped with seared salmon and citrus drizzle</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$16.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="California Roll (8 pcs)" data-price="11.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">California Roll (8 pcs)</div>
+            <div class="menu-item__desc">Crab, avocado, and cucumber with sesame seeds</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$11.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Spicy Tuna Roll (8 pcs)" data-price="13.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Spicy Tuna Roll (8 pcs)
+              <span class="menu-item__tag menu-item__tag--spicy">Spicy</span>
+            </div>
+            <div class="menu-item__desc">Fresh tuna with spicy mayo, scallions, and tempura flakes</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$13.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Dragon Roll (8 pcs)" data-price="17.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Dragon Roll (8 pcs)</div>
+            <div class="menu-item__desc">Shrimp tempura inside, topped with eel, avocado, and unagi sauce</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$17.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Salmon Sashimi (8 pcs)" data-price="14.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Salmon Sashimi (8 pcs)</div>
+            <div class="menu-item__desc">Premium sliced Atlantic salmon served with wasabi and pickled ginger</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$14.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Chicken Katsu Bento" data-price="15.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Chicken Katsu Bento</div>
+            <div class="menu-item__desc">Panko-fried chicken cutlet with rice, miso soup, salad, and tonkatsu sauce</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$15.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Veggie Roll Combo (16 pcs)" data-price="13.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Veggie Roll Combo (16 pcs)
+              <span class="menu-item__tag menu-item__tag--veggie">Veggie</span>
+            </div>
+            <div class="menu-item__desc">Avocado roll + cucumber roll + sweet potato tempura roll</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$13.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Noodles & Rice -->
+      <div class="menu-category" id="noodles">
+        <h2>Noodles &amp; Rice <span>// Bowls</span></h2>
+
+        <div class="menu-item" data-name="Chicken Fried Rice" data-price="12.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Chicken Fried Rice
+            </div>
+            <div class="menu-item__desc">Wok-fried jasmine rice with egg, peas, carrots, and scallions</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$12.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Tonkotsu Ramen" data-price="15.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Tonkotsu Ramen
+              <span class="menu-item__tag menu-item__tag--popular">Popular</span>
+            </div>
+            <div class="menu-item__desc">Rich pork bone broth, chashu pork, soft-boiled egg, nori, and scallions</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$15.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Singapore Noodles" data-price="13.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Singapore Noodles</div>
+            <div class="menu-item__desc">Thin rice vermicelli stir-fried with curry powder, shrimp, pork, and vegetables</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$13.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Spicy Miso Ramen" data-price="15.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Spicy Miso Ramen
+              <span class="menu-item__tag menu-item__tag--spicy">Spicy</span>
+            </div>
+            <div class="menu-item__desc">Miso-chili broth, ground pork, corn, bean sprouts, and butter</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$15.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Teriyaki Bowl" data-price="14.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Teriyaki Bowl
+            </div>
+            <div class="menu-item__desc">Grilled chicken or salmon with teriyaki glaze, steamed rice, and stir-fried vegetables</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$14.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drinks -->
+      <div class="menu-category" id="drinks">
+        <h2>Drinks <span>// Non-Alcoholic</span></h2>
+
+        <div class="menu-item" data-name="Thai Iced Tea" data-price="4.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Thai Iced Tea</div>
+            <div class="menu-item__desc">Classic black tea with sweetened condensed milk over ice</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$4.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Thai Iced Coffee" data-price="5.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Thai Iced Coffee</div>
+            <div class="menu-item__desc">Strong brewed coffee with condensed milk and cream over ice</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$5.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Mango Lassi" data-price="5.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Mango Lassi</div>
+            <div class="menu-item__desc">Creamy yogurt blended with ripe mango and a hint of cardamom</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$5.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Fresh Coconut Water" data-price="4.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Fresh Coconut Water</div>
+            <div class="menu-item__desc">Served chilled, straight from the coconut</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$4.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Jasmine Green Tea (hot or iced)" data-price="3.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Jasmine Green Tea (hot or iced)</div>
+            <div class="menu-item__desc">Light and floral, brewed fresh</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$3.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Lychee Soda" data-price="4.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Lychee Soda</div>
+            <div class="menu-item__desc">Sparkling water with lychee syrup and fresh lime</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$4.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Soft Drinks" data-price="2.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Soft Drinks</div>
+            <div class="menu-item__desc">Coke, Diet Coke, Sprite, Ginger Ale</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$2.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beer, Wine & Spirits -->
+      <div class="menu-category" id="alcohol">
+        <h2>Beer, Wine &amp; Spirits <span>// 21+ Only</span></h2>
+
+        <div class="menu-item" data-name="Sapporo (Draft, 16oz)" data-price="7.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Sapporo (Draft, 16oz)</div>
+            <div class="menu-item__desc">Crisp Japanese rice lager</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$7.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Singha" data-price="6.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Singha</div>
+            <div class="menu-item__desc">Thai premium lager with a smooth, malty finish</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$6.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Tsingtao" data-price="6.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Tsingtao</div>
+            <div class="menu-item__desc">Classic Chinese pilsner, light and refreshing</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$6.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Hot Sake (carafe)" data-price="9.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">
+              Hot Sake (carafe)
+            </div>
+            <div class="menu-item__desc">Warm junmai sake, clean and smooth</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$9.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Cold Sake (300ml)" data-price="12.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Cold Sake (300ml)</div>
+            <div class="menu-item__desc">Chilled ginjo sake, fruity and aromatic</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$12.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Plum Wine" data-price="8.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Plum Wine</div>
+            <div class="menu-item__desc">Sweet Japanese plum wine, served chilled or on the rocks</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$8.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="House White &mdash; Riesling" data-price="8.50">
+          <div class="menu-item__info">
+            <div class="menu-item__name">House White &mdash; Riesling</div>
+            <div class="menu-item__desc">Off-dry with notes of stone fruit, pairs well with spicy dishes</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$8.50</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Lotus Fizz Cocktail" data-price="11.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Lotus Fizz Cocktail</div>
+            <div class="menu-item__desc">Lychee liqueur, vodka, elderflower, lime, and soda</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$11.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Thai Basil Smash" data-price="12.00">
+          <div class="menu-item__info">
+            <div class="menu-item__name">Thai Basil Smash</div>
+            <div class="menu-item__desc">Gin, Thai basil, lime, simple syrup, and a dash of chili</div>
+          </div>
+          <div class="menu-item__actions">
+            <div class="menu-item__price">$12.00</div>
+            <button class="menu-item__add" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Order?</h2>
+      <p>Call us at (407) 555-0188 or check our pickup details.</p>
+      <a href="order.html" class="btn btn--primary">How to Order</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <h3>Lotus <span>&amp;</span> Rice</h3>
+          <p>Asian fusion takeout in Windermere, Orlando. Thai, Chinese, Japanese,
+             and a curated drink menu &mdash; all made fresh for pickup.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+14075550188">(407) 555-0188</a></li>
+            <li><a href="mailto:hello@lotusandrice.com">hello@lotusandrice.com</a></li>
+            <li>8234 Winter Garden Vineland Rd</li>
+            <li>Windermere, FL 34786</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Lotus &amp; Rice Asian Kitchen. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Overlay & Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer__header">
+      <h3>Your Cart</h3>
+      <button class="cart-drawer__close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-drawer__body" id="cartBody"></div>
+    <div class="cart-drawer__footer" id="cartFooter"></div>
+  </aside>
+
+  <script src="cart.js"></script>
+  <script>
+    document.getElementById("navToggle").addEventListener("click", function () {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+  </script>
+
+</body>
+</html>

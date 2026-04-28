@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order History | Lotus &amp; Rice Asian Kitchen</title>
+  <meta name="description" content="View your past orders at Lotus & Rice Asian Kitchen.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav__logo">Lotus <span>&amp;</span> Rice</a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="orders.html" class="active">Orders</a></li>
+      </ul>
+      <button class="nav__cart" id="cartBtn" aria-label="Open cart">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="nav__cart-badge" id="cartBadge" style="display:none;">0</span>
+      </button>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <span class="section-label">Your Account</span>
+      <h1>Order History</h1>
+      <p>A record of every order you've placed with us.</p>
+    </div>
+  </header>
+
+  <!-- Orders Content -->
+  <section class="section">
+    <div class="container">
+      <div id="ordersContent"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <h3>Lotus <span>&amp;</span> Rice</h3>
+          <p>Asian fusion dining in Windermere, Orlando. Thai, Chinese, Japanese,
+            and a curated drink menu &mdash; all made fresh for dine-in or pickup.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="orders.html">Orders</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+14075550188">(407) 555-0188</a></li>
+            <li><a href="mailto:hello@lotusandrice.com">hello@lotusandrice.com</a></li>
+            <li>8234 Winter Garden Vineland Rd</li>
+            <li>Windermere, FL 34786</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Lotus &amp; Rice Asian Kitchen. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Overlay & Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer__header">
+      <h3>Your Cart</h3>
+      <button class="cart-drawer__close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-drawer__body" id="cartBody"></div>
+    <div class="cart-drawer__footer" id="cartFooter"></div>
+  </aside>
+
+  <script src="cart.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    document.getElementById("navToggle").addEventListener("click", function () {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+
+    function escapeHTML(str) {
+      var d = document.createElement('div');
+      d.appendChild(document.createTextNode(String(str)));
+      return d.innerHTML;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var name = localStorage.getItem('lr_name');
+      var email = localStorage.getItem('lr_email') || '';
+      var container = document.getElementById('ordersContent');
+
+      if (!name) {
+        container.innerHTML =
+          '<div class="info-box" style="max-width:540px;margin:0 auto;text-align:center;">' +
+            '<h3>Sign in to view your orders</h3>' +
+            '<p>You need to be logged in to see your order history.</p>' +
+            '<a href="login.html" class="btn btn--primary" style="display:inline-block;margin-top:1.25rem;">Login</a>' +
+          '</div>';
+        return;
+      }
+
+      var allOrders = [];
+      try {
+        var raw = localStorage.getItem('lotusrice_orders');
+        if (raw) allOrders = JSON.parse(raw);
+      } catch (e) {}
+
+      var orders = allOrders.filter(function (o) { return o.email === email; });
+      orders = orders.slice().reverse();
+
+      if (orders.length === 0) {
+        container.innerHTML =
+          '<div class="info-box" style="max-width:540px;margin:0 auto;text-align:center;">' +
+            '<h3>No orders yet</h3>' +
+            '<p>You haven\'t placed any orders with this account. Browse the menu to get started.</p>' +
+            '<a href="menu.html" class="btn btn--primary" style="display:inline-block;margin-top:1.25rem;">Browse Menu</a>' +
+          '</div>';
+        return;
+      }
+
+      var html = '<p style="color:var(--color-text-muted);margin-bottom:2rem;">' +
+        orders.length + ' order' + (orders.length !== 1 ? 's' : '') + ' for ' + escapeHTML(email) +
+      '</p>';
+
+      orders.forEach(function (order) {
+        var d = new Date(order.date);
+        var dateStr = d.toLocaleDateString('en-US', {
+          weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+        var timeStr = d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+        var itemRows = '';
+        order.items.forEach(function (item) {
+          itemRows +=
+            '<tr>' +
+              '<td>' + escapeHTML(item.name) + '</td>' +
+              '<td>' + item.qty + '</td>' +
+              '<td>$' + item.price.toFixed(2) + '</td>' +
+              '<td>$' + (item.price * item.qty).toFixed(2) + '</td>' +
+            '</tr>';
+        });
+
+        html +=
+          '<div class="order-card">' +
+            '<div class="order-card__header">' +
+              '<span class="order-card__date">' + escapeHTML(dateStr) + ' &mdash; ' + escapeHTML(timeStr) + '</span>' +
+              '<span class="order-card__id">Order #' + order.id + '</span>' +
+            '</div>' +
+            '<table class="order-card__items">' +
+              '<thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>' +
+              '<tbody>' + itemRows + '</tbody>' +
+            '</table>' +
+            '<div class="order-card__totals">' +
+              '<div class="order-card__total-row"><span>Subtotal</span><span>$' + order.subtotal.toFixed(2) + '</span></div>' +
+              '<div class="order-card__total-row"><span>Tax (7%)</span><span>$' + order.tax.toFixed(2) + '</span></div>' +
+              '<div class="order-card__total-row order-card__total-row--grand"><span>Total</span><span>$' + order.total.toFixed(2) + '</span></div>' +
+            '</div>' +
+          '</div>';
+      });
+
+      container.innerHTML = html;
+    });
+  </script>
+
+</body>
+</html>

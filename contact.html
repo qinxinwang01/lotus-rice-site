@@ -19,18 +19,18 @@
         <li><a href="about.html">About</a></li>
         <li><a href="order.html">Order</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="orders.html">Orders</a></li>
       </ul>
       <button class="nav__cart" id="cartBtn" aria-label="Open cart">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span class="nav__cart-badge" id="cartBadge" style="display:none;">0</span>
       </button>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+      <button class="nav__toggle" id="navToggle">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- Page Header -->
+  <!-- Header -->
   <header class="page-header">
     <div class="container">
       <span class="section-label">Get in Touch</span>
@@ -44,186 +44,79 @@
     <div class="container">
       <div class="contact-grid">
 
-        <!-- Contact Form -->
-        <div>
+        <!-- Form -->
+        <div class="contact-col">
           <span class="section-label">Send a Message</span>
           <h2 style="margin-bottom: 1.5rem;">Drop Us a Line</h2>
-          <form class="contact-form" action="#" method="POST" onsubmit="handleSubmit(event)">
+
+          <form class="contact-form" onsubmit="handleSubmit(event)">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" name="name" placeholder="Your name" required>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required>
             </div>
             <div class="form-group">
-              <label for="phone">Phone (optional)</label>
-              <input type="tel" id="phone" name="phone" placeholder="(407) 555-0000">
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject" required>
-                <option value="" disabled selected>Choose a topic</option>
-                <option value="general">General Question</option>
-                <option value="menu">Menu Inquiry</option>
-                <option value="catering">Large / Catering Order</option>
-                <option value="feedback">Feedback</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" placeholder="How can we help?" required></textarea>
             </div>
             <button type="submit" class="btn btn--primary" style="align-self: flex-start;">Send Message</button>
-            <p id="formConfirmation" style="display: none; color: var(--color-gold); margin-top: 0.5rem;">
-              Thank you! Your message has been received. We'll get back to you soon.
+            <p id="formConfirmation" style="display:none; color: var(--color-gold); margin-top: 0.5rem;">
+              Thank you! We'll get back to you soon.
             </p>
           </form>
         </div>
 
-        <!-- Contact Info -->
-        <div>
+        <!-- Info -->
+        <div class="contact-col">
           <span class="section-label">Info</span>
           <h2 style="margin-bottom: 1.5rem;">Other Ways to Reach Us</h2>
 
-          <div class="contact-info-list">
-            <div class="contact-info-item">
-              <div class="contact-info-item__icon">&#128222;</div>
-              <div>
-                <h4>Phone</h4>
-                <p><a href="tel:+14075550188">(407) 555-0188</a></p>
-                <p>Best for placing orders or quick questions during business hours.</p>
-              </div>
+          <div class="contact-info-simple">
+            <div class="contact-info-simple__item">
+              <strong>Phone</strong>
+              <p><a href="tel:+14075550188">(407) 555-0188</a></p>
             </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-item__icon">&#9993;</div>
-              <div>
-                <h4>Email</h4>
-                <p><a href="mailto:hello@lotusandrice.com">hello@lotusandrice.com</a></p>
-                <p>For catering inquiries, partnerships, or general feedback. We respond within 24 hours.</p>
-              </div>
+            <div class="contact-info-simple__item">
+              <strong>Email</strong>
+              <p><a href="mailto:hello@lotusandrice.com">hello@lotusandrice.com</a></p>
             </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-item__icon">&#128205;</div>
-              <div>
-                <h4>Location</h4>
-                <p>8234 Winter Garden Vineland Rd<br>Windermere, FL 34786</p>
-                <p>In the Windermere Village shopping plaza. Free parking in front.</p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-item__icon">&#128336;</div>
-              <div>
-                <h4>Hours</h4>
-                <p>Sun&ndash;Thu: 11:00 AM &ndash; 9:30 PM</p>
-                <p>Fri&ndash;Sat: 11:00 AM &ndash; 10:30 PM</p>
-              </div>
+            <div class="contact-info-simple__item">
+              <strong>Address</strong>
+              <p>8234 Winter Garden Vineland Rd, Windermere, FL 34786</p>
             </div>
           </div>
 
-          <div class="map-placeholder">
-            <p>Map placeholder &mdash; Windermere, Orlando, FL</p>
+          <!-- ✅ 地图（已替换） -->
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps?q=8234+Winter+Garden+Vineland+Rd,+Windermere,+FL+34786&output=embed"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
           </div>
+
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="text-center" style="margin-bottom: 2.5rem;">
-        <span class="section-label">FAQ</span>
-        <h2>Common Questions</h2>
-      </div>
-      <div class="grid-2">
-        <div class="info-box">
-          <h3>Do you offer dine-in?</h3>
-          <p>No. We are a takeout and pickup kitchen only. This lets us focus entirely
-             on food quality and fast preparation.</p>
-        </div>
-        <div class="info-box">
-          <h3>Do you deliver?</h3>
-          <p>We do not offer direct delivery at this time. However, you may find us on
-             third-party delivery apps in the Orlando area.</p>
-        </div>
-        <div class="info-box">
-          <h3>Can I place a large order?</h3>
-          <p>Yes. For orders of 10+ items, please call at least 2 hours ahead so our
-             kitchen can prepare everything on time.</p>
-        </div>
-        <div class="info-box">
-          <h3>Do you have vegetarian options?</h3>
-          <p>Absolutely. Many of our Thai, Chinese, and sushi dishes have vegetarian
-             variations. Just ask when ordering.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <h3>Lotus <span>&amp;</span> Rice</h3>
-          <p>Asian fusion takeout in Windermere, Orlando. Thai, Chinese, Japanese,
-             and a curated drink menu &mdash; all made fresh for pickup.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="order.html">Order</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="tel:+14075550188">(407) 555-0188</a></li>
-            <li><a href="mailto:hello@lotusandrice.com">hello@lotusandrice.com</a></li>
-            <li>8234 Winter Garden Vineland Rd</li>
-            <li>Windermere, FL 34786</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Lotus &amp; Rice Asian Kitchen. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Cart Overlay & Drawer -->
-  <div class="cart-overlay" id="cartOverlay"></div>
-  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer__header">
-      <h3>Your Cart</h3>
-      <button class="cart-drawer__close" id="cartClose">&times;</button>
-    </div>
-    <div class="cart-drawer__body" id="cartBody"></div>
-    <div class="cart-drawer__footer" id="cartFooter"></div>
-  </aside>
-
-  <script src="cart.js"></script>
+  <script src="auth.js"></script>
   <script>
-    document.getElementById("navToggle").addEventListener("click", function () {
-      document.getElementById("navLinks").classList.toggle("open");
-    });
-
     function handleSubmit(e) {
       e.preventDefault();
       document.getElementById("formConfirmation").style.display = "block";
-      e.target.reset();
     }
+
+    document.getElementById("navToggle").onclick = () => {
+      document.getElementById("navLinks").classList.toggle("open");
+    };
   </script>
 
 </body>

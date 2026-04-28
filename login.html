@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout | Lotus &amp; Rice Asian Kitchen</title>
-  <meta name="description" content="Review your order and checkout at Lotus & Rice Asian Kitchen.">
+  <title>Login | Lotus &amp; Rice Asian Kitchen</title>
+  <meta name="description" content="Sign in to your Lotus & Rice account.">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    if (localStorage.getItem('lr_name')) {
+      window.location.replace('index.html');
+    }
+  </script>
 </head>
 <body>
 
@@ -34,16 +39,35 @@
   <!-- Page Header -->
   <header class="page-header">
     <div class="container">
-      <span class="section-label">Review Order</span>
-      <h1>Checkout</h1>
-      <p>Review your items and complete your order below.</p>
+      <span class="section-label">Welcome</span>
+      <h1>Sign In</h1>
+      <p>Enter your details to access your account.</p>
     </div>
   </header>
 
-  <!-- Checkout Content -->
+  <!-- Login Form -->
   <section class="section">
     <div class="container">
-      <div id="checkoutContent"></div>
+      <div class="login-wrapper">
+        <form class="contact-form" id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="loginName">Name</label>
+            <input type="text" id="loginName" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required>
+          </div>
+          <button type="submit" class="btn btn--primary" style="align-self: flex-start;">Login</button>
+          <p id="loginError" style="display:none; color: #c0392b; margin-top: 0.5rem;">
+            Please fill in all fields.
+          </p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -53,8 +77,8 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <h3>Lotus <span>&amp;</span> Rice</h3>
-          <p>Asian fusion takeout in Windermere, Orlando. Thai, Chinese, Japanese,
-             and a curated drink menu &mdash; all made fresh for pickup.</p>
+          <p>Asian fusion dining in Windermere, Orlando. Thai, Chinese, Japanese,
+            and a curated drink menu &mdash; all made fresh for dine-in or pickup.</p>
         </div>
         <div class="footer__col">
           <h4>Pages</h4>
@@ -94,9 +118,24 @@
   </aside>
 
   <script src="cart.js"></script>
+  <script src="auth.js"></script>
   <script>
     document.getElementById("navToggle").addEventListener("click", function () {
       document.getElementById("navLinks").classList.toggle("open");
+    });
+
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = document.getElementById("loginName").value.trim();
+      var email = document.getElementById("loginEmail").value.trim();
+      var password = document.getElementById("loginPassword").value;
+      if (!name || !email || !password) {
+        document.getElementById("loginError").style.display = "block";
+        return;
+      }
+      localStorage.setItem("lr_name", name);
+      localStorage.setItem("lr_email", email);
+      window.location.href = "index.html";
     });
   </script>
 

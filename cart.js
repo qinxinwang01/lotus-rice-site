@@ -20,6 +20,7 @@
   /* ─── State ────────────────────────────────────── */
   var cart = [];
   var STORAGE_KEY = 'lotusrice_cart';
+  var ORDERS_KEY = 'lotusrice_orders';
 
   function saveCart() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
@@ -71,6 +72,27 @@
   function clearCart() {
     cart = [];
     saveCart();
+  }
+
+  function saveOrder(items, subtotal, tax, total) {
+    var email = '';
+    try { email = localStorage.getItem('lr_email') || ''; } catch (e) {}
+    var order = {
+      id: Date.now(),
+      date: new Date().toISOString(),
+      email: email,
+      items: items.map(function (i) { return { name: i.name, price: i.price, qty: i.qty }; }),
+      subtotal: subtotal,
+      tax: tax,
+      total: total
+    };
+    var orders = [];
+    try {
+      var raw = localStorage.getItem(ORDERS_KEY);
+      if (raw) orders = JSON.parse(raw);
+    } catch (e) {}
+    orders.push(order);
+    try { localStorage.setItem(ORDERS_KEY, JSON.stringify(orders)); } catch (e) {}
   }
 
   /* ─── UI: Badge ────────────────────────────────── */
@@ -168,6 +190,7 @@
       '<button class="btn btn--primary" id="payBtn" style="width:100%;text-align:center;margin-top:1.5rem;">Proceed to Payment</button>';
 
     document.getElementById('payBtn').addEventListener('click', function () {
+      saveOrder(cart, subtotal, tax, total);
       alert('Demo: Payment of $' + total.toFixed(2) + ' received! Thank you for your order.');
       clearCart();
       renderBadge();
